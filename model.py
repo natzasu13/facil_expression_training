@@ -1,7 +1,9 @@
 from tensorflow.keras.models import model_from_json
 import numpy as np
 import tensorflow as tf
-
+# Just disables the warning, doesn't take advantage of AVX/FMA to run faster
+import os
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
 config = tf.compat.v1.ConfigProto()
 config.gpu_options.per_process_gpu_memory_fraction = 0.15
